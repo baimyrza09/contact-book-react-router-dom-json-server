@@ -16,13 +16,13 @@ const Details = () => {
         <div>
             {newDetails ? 
             <>
-                <ul>
-                    <li>{newDetails.name}</li>
-                    <li>{newDetails.surname}</li>
-                    <li>{newDetails.phone}</li>
+                <ul className='list-group mb-3'>
+                    <li className='list-group-item'>{newDetails.name}</li>
+                    <li className='list-group-item'>{newDetails.surname}</li>
+                    <li className='list-group-item'>{newDetails.phone}</li>
                 </ul>
                 <Link to="/">
-                    <button>back</button>
+                    <button className="btn btn-primary ml-4">back</button>
                 </Link>
             </>
             : <h1>Loading...</h1>

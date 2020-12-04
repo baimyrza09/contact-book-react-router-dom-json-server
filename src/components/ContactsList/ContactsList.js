@@ -3,24 +3,25 @@ import { Link } from "react-router-dom";
 import { contactsContext } from "../../contexts/ContactsContext";
 
 const ContactsList = () => {
-  const { contacts, getTodosData, deleteContact, EditContact, details } = useContext(
+  const { currentPosts, getTodosData, deleteContact, EditContact, details } = useContext(
     contactsContext
   );
+
 
   useEffect(() => {
     getTodosData();
   }, []);
   return (
-    <ul>
-      {contacts.map((item) => (
-        <li key={item.id}>
+    <ul className='list-group mb-3'>
+      {currentPosts.map((item) => (
+        <li key={item.id} className='list-group-item'>
           {item.name} 
-          <button onClick={() => deleteContact(item.id)}>delete</button>
+          <button className="btn btn-primary ml-4" onClick={() => deleteContact(item.id)}>delete</button>
           <Link to="/edit">
-            <button onClick={() => EditContact(item.id)}>edit</button>
+            <button className="btn btn-primary" onClick={() => EditContact(item.id)}>edit</button>
           </Link>
           <Link to="/details">
-            <button onClick={() => details(item.id)}>details</button>
+            <button className="btn btn-primary" onClick={() => details(item.id)}>details</button>
           </Link>
 
         </li>
